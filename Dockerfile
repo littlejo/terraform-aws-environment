@@ -1,8 +1,6 @@
 FROM ubuntu:20.04
 
-RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y openssh-client curl python3-pip vim bash-completion git jq nodejs unzip
-
-RUN pip3 install awscli
+RUN apt update && DEBIAN_FRONTEND=noninteractive apt install -y openssh-client curl vim bash-completion git jq nodejs unzip awscli
 
 ADD get_lastversion.sh /var/tmp
 RUN bash /var/tmp/get_lastversion.sh
