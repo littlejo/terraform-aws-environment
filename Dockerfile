@@ -12,6 +12,9 @@ RUN mkdir -p /usr/lib/custom-terraform-plugins && \
     find .terraform/ -name "*aws*" | xargs -i cp {} /usr/lib/custom-terraform-plugins && \
     rm -rf .terraform
 
+RUN curl -L https://github.com/gruntwork-io/terragrunt/releases/download/v0.23.31/terragrunt_linux_amd64 -o /usr/local/bin/terragrunt
+RUN chmod a+x /usr/local/bin/terragrunt
+
 ADD post-install.sh /var/tmp
 RUN chmod a+x /var/tmp/post-install.sh
 
